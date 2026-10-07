@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!-- 宣告使用 HTML5；DOCTYPE 是文件類型宣告，不需要結束標籤。 -->
+<html lang="zh-Hant">
+<!-- html 包住整份文件；lang="zh-Hant" 表示主要使用繁體中文。 -->
+<head>
+    <!-- head 放網頁資訊；這些資訊不會直接成為頁面中的報導文字。 -->
+    <meta charset="UTF-8">
+    <!-- UTF-8 可正確處理中文；meta 是空元素，不寫結束標籤。 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- viewport 讓行動裝置使用裝置寬度；不代表固定寬度的圖片會自動縮小。 -->
+    <meta name="description" content="走進台中火車站，認識百年歷史，透過清單、表格、照片和影片閱讀城市故事。">
+    <!-- description 提供網頁摘要；author 標示作者。 -->
+    <meta name="author" content="HTML 課程示範作者">
+    <title>台中火車站：歷史與現代的交會</title>
+    <!-- title 顯示在瀏覽器分頁；與 body 中的 h1 用途不同。 -->
+</head>
+
+<body>
+    <!--
+        第四次作業：一頁式台中火車站報導。
+        本範例僅使用 HTML，保留瀏覽器預設呈現，不加入 CSS 或 JavaScript。
+        註解使用「小於符號、驚嘆號、兩個連字號」開始，並以兩個連字號及大於符號結束。
+        註解不會顯示於網頁，但讀者可從原始碼看見，因此不要放私人資料。
+        使用一致的四個空格縮排；成對標籤都明確寫出結束標籤。
+    -->
+
+    <!-- header 是頁首；id="top" 是下方「回到頁首」連結的目的地。 -->
+    <header id="top">
+        <!-- h1 是本頁主標題；h2 用於各章節，依內容階層選用標題。 -->
+        <h1>台中火車站：歷史與現代的交會</h1>
+        <p>從火車站到城市街區，一起閱讀台中的交通記憶。</p>
+        <!-- time 的 datetime 以標準日期格式提供機器可讀的日期。 -->
+        <p>作者：袁育祥｜報導整理日期：<time datetime="2026-10-07">2026 年 10 月 7 日</time></p>
+        <p><small>本文為資料整理型教學報導，非現場採訪紀錄。</small></p>
+    </header>
+
+    <!-- nav 表示導覽區；href="#名稱" 會跳到本頁相同 id 的元素。 -->
+    <nav aria-label="報導目錄">
+        <h2>報導目錄</h2>
+        <ul>
+            <li><a href="#intro">火車站簡介</a></li>
+            <li><a href="#highlights">景點特色</a></li>
+            <li><a href="#table">景點比較表</a></li>
+            <li><a href="#photo">火車站照片</a></li>
+            <li><a href="#video">影音報導</a></li>
+            <li><a href="#sources">資料來源</a></li>
+        </ul>
+    </nav>
+
+    <!-- hr 表示內容主題的分隔，也是沒有結束標籤的空元素。 -->
+    <hr>
+
+    <!-- main 包住本頁主要內容；article 表示可獨立閱讀的完整報導。 -->
+    <main>
+        <article aria-label="台中火車站專題報導">
+            <!-- section 將報導分成有標題的章節；同一頁中的 id 不可重複。 -->
+            <section id="intro">
+                <h2>一、火車站簡介</h2>
+                <!-- p 表示段落；strong 強調重要資訊，不用來取代標題。 -->
+                <p>
+                    台中火車站位於台中市中區，自 <strong>1903 年 2 月 1 日</strong>啟用以來，
+                    成為台中重要的交通樞紐，也見證了城市百年來的發展與變遷。
+                    車站周邊結合歷史建築、商圈與城市景觀，讓旅客能從車站開始認識台中的城市風貌。
+                </p>
+                <p>
+                   車站最具代表性的建築是具有歷史價值的<strong>台中舊火車站</strong>。
+                   現今的站體於 1917 年改建完成，採用當時流行的巴洛克式建築風格，
+                   後被列為國定古蹟，成為台中重要的歷史地標之一。
+                </p>
+                <p>
+                    從舊站房的歷史建築到如今的現代化車站，台中火車站見證了鐵路發展與城市轉型。
+                    走進車站，不只能感受到交通往來的繁忙，也能看見台中過去與現在交織的城市記憶。
+                </p>
+                <!-- br 僅用於同段文字中需要的換行；不要用很多 br 製造間距。 -->
+                <p>車站地址：台中市中區台灣大道一段 1 號。<br>閱讀重點：歷史建築、鐵路發展與城市轉型。</p>
+            </section>
+
+            <section id="highlights">
+                <h2>二、景點特色</h2>
+                <h3>值得留意的三個特色</h3>
+                <!-- ul 是無序清單；li 是個別項目，適合不分先後的資訊。 -->
+                <ul>
+                    <li><strong>歷史建築：</strong>台中舊火車站保留百年建築特色，見證台中鐵路發展的歷史。</li>
+                    <li><strong>交通樞紐：</strong>台中火車站連結各地交通，是台中重要的鐵路運輸中心。</li>
+                    <li><strong>城市發展：</strong>車站周邊結合商圈與新舊建築，展現台中城市發展與轉型的樣貌。</li>
+                </ul>
+
+            </section>
+
+            <section id="table">
+                <h2>三、景點比較表</h2>
+                <!--
+                    table 用於呈現資料，不用來排版整個網頁。
+                    本作業維持純 HTML，表格沒有額外的框線樣式。
+                    不使用已過時的 border、cellpadding、cellspacing 屬性。
+                -->
+                <table border="1">
+                    <!-- caption 是表格標題，放在 table 內最前面。 -->
+                    <caption>台中火車站三處景點的特色與觀察重點</caption>
+                    <!-- thead 包住表頭；tr 是一橫列；th 是標題儲存格。 -->
+                    <thead>
+                        <tr>
+                            <!-- scope="col" 表示這個 th 是整欄的標題。 -->
+                            <th scope="col">景點名稱</th>
+                            <th scope="col">主要特色</th>
+                            <th scope="col">建議觀察重點</th>
+                        </tr>
+                    </thead>
+                    <!-- tbody 包住資料列；td 是一般資料儲存格。 -->
+                    <tbody>
+                        <tr>
+                            <!-- scope="row" 表示這個 th 是本列的標題。 -->
+                            <th scope="row">台中火車站</th>
+                            <td>結合歷史車站與現代化站體，展現台中鐵路發展</td>
+                            <td>新舊建築特色、車站空間及歷史變遷</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">台中驛鐵道文化園區</th>
+                            <td>保存鐵道相關設施與歷史文化</td>
+                            <td>鐵道遺跡、園區景觀及文化展示</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">台中市中區第一廣場</th>
+                            <td>位於火車站附近的重要商業與交通區域</td>
+                            <td>周邊街景、人潮活動及城市發展變化</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="photo">
+                <h2>四、台中火車站照片</h2>
+                <!-- figure 將圖片與圖說組成一個單位；figcaption 是圖說。 -->
+                <figure>
+                    <!--
+                        img 是空元素，不寫 /img 結束標籤。
+                        src 指定圖片網址；本範例使用外部圖片，需要連線才能載入。
+                        alt 描述照片內容，圖片未載入時或使用螢幕閱讀器時仍可理解。
+                        width 控制顯示寬度；未指定 height，瀏覽器依原圖比例顯示。
+                    -->
+                    <img
+                        src="https://travel.taichung.gov.tw/image/24336/1024x768"
+                        alt="台中火車站"
+                        width="480">
+                    <figcaption>
+                        台中火車站是台中重要的鐵路運輸中心。
+                        圖片來源：<a href="https://share.google/6TOkVebCPZ0cpsyKE">台中觀光旅遊網</a>。
+                    </figcaption>
+                </figure>
+            </section>
+
+            <section id="video">
+                <h2>五、影音報導</h2>
+                <p>透過下方影片認識台中火車站，再比較影片畫面與本文介紹的景點。</p>
+                <!--
+                    iframe 將 YouTube 播放器嵌入本頁，需要明確的結束標籤。
+                    src 使用 /embed/影片ID，不是一般的 /watch?v=影片ID 網址。
+                    width、height 設定播放器尺寸；title 說明嵌入內容。
+                    allow 開放所列功能；allowfullscreen 允許全螢幕播放。
+                    referrerpolicy 保留跨站來源資訊；仍須由瀏覽器提供有效來源。
+                    直接開本機檔案時，YouTube 可能因缺少 HTTP Referer 而出現錯誤 153。
+                    若發生此情況，請用本機 HTTP 伺服器預覽，或使用下方原始影片連結。
+                    播放也取決於網路、YouTube 及發布者的嵌入設定。
+                -->
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/n_g6gGwiRWw?si=hmTZqDc4aeZAF4Rx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <!-- a 提供一般影片連結；播放器無法播放時仍能前往 YouTube。 -->
+                <p>
+                    若播放器無法播放，請
+                    <a href="https://youtu.be/n_g6gGwiRWw?si=sccekmRkmWvLgmQt" target="_blank" rel="noopener noreferrer">在 YouTube 觀看台中火車站介紹影片</a>。
+                </p>
+                <p><small>影片為外部作者發布的歷史介紹，現場狀況請以最新官方資訊為準。</small></p>
+            </section>
+
+            <section id="sources">
+                <h2>六、資料來源</h2>
+                <p>本報導依下列資料整理，散步順序與觀察建議由示範作者規劃。</p>
+                <!--
+                    target="_blank" 另開分頁；rel 保護開啟新頁面的關聯。
+                    網址中的 & 在 HTML 原始碼中寫成 &amp;。
+                -->
+                <ul>
+                    <li><a href="https://share.google/Cxjpm4CqfCDOEiG0g" target="_blank" rel="noopener noreferrer">台中觀光旅遊網（含圖片來源）</a></li>
+                </ul>
+                <p><small>資料整理日期：2026 年 10 月 7 日。</small></p>
+            </section>
+        </article>
+    </main>
+
+    <hr>
+    <!-- footer 是頁尾；來源與作者標示應依自己的作品修改。 -->
+    <footer>
+        <p><a href="#top">回到頁首</a></p>
+    </footer>
+</body>
+</html>
