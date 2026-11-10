@@ -1,0 +1,691 @@
+# 這一站，青春 ｜ 臺中驛鐵道文化園區期末企劃網頁<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>這一站，青春｜臺中驛鐵道文化園區期末企劃</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="臺中驛鐵道文化園區期末企劃《這一站，青春》官方網站。結合鐵道歷史與多元生活體驗的城市文化場域，打破古蹟沉悶印象，記錄青年青春足跡。">
+    <meta name="keywords" content="臺中驛鐵道文化園區, 這一站青春, 臺中火車站, 古蹟活化, 青年文創, 期末企劃, SWOT分析, STP定位">
+    <meta name="author" content="甲四組：張儷馨、李妤肜、黃郡玟、林品妤、袁育祥、蘇芳可、佐藤由美、曾苡瑄">
+    
+    <!-- Open Graph / Social Media Meta -->
+    <meta property="og:title" content="這一站，青春｜臺中驛鐵道文化園區期末企劃">
+    <meta property="og:description" content="古蹟留下歷史，我們留下足跡。探索結合鐵道歷史與多元生活體驗的城市文化場域。">
+    <meta property="og:type" content="website">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        railway: {
+                            50: '#fdf4f0',
+                            100: '#fae4dc',
+                            500: '#c25e38',
+                            600: '#a34827',
+                            700: '#84371d',
+                            900: '#522010',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Modular CSS Simulation (css/ 檔案匣概念) -->
+    <style>
+        /* ==========================================
+           css/layout.css - 網格與排版系統
+           ========================================== */
+        .grid-system {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+        
+        /* ==========================================
+           css/components.css - 組件樣式
+           ========================================== */
+        .card-shadow {
+            box-shadow: 0 10px 25px -5px rgba(194, 94, 56, 0.1), 0 8px 10px -6px rgba(194, 94, 56, 0.1);
+        }
+        
+        /* ==========================================
+           css/style.css - 全域樣式與動畫
+           ========================================== */
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+    <!-- 頂部導覽列 (Navbar) -->
+    <header class="bg-slate-900 text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <button id="sidebar-toggle" class="md:hidden text-slate-300 hover:text-white focus:outline-none p-2 rounded-lg">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+                <div class="bg-railway-500 text-white p-2 rounded-xl shadow">
+                    <i class="fa-solid fa-train-subway text-xl"></i>
+                </div>
+                <div>
+                    <span class="text-xs text-railway-100 font-medium block">甲四組期末企劃</span>
+                    <h1 class="text-lg font-bold tracking-wider">這一站，青春</h1>
+                </div>
+            </div>
+            
+            <!-- 快速導航與部署連結 -->
+            <div class="hidden md:flex items-center space-x-6 text-sm">
+                <a href="#overview" onclick="switchTab('overview')" class="nav-link text-slate-300 hover:text-railway-100 transition"><i class="fa-solid fa-house mr-1"></i> 專案摘要</a>
+                <a href="#swot" onclick="switchTab('swot')" class="nav-link text-slate-300 hover:text-railway-100 transition"><i class="fa-solid fa-chart-pie mr-1"></i> SWOT分析</a>
+                <a href="#stp" onclick="switchTab('stp')" class="nav-link text-slate-300 hover:text-railway-100 transition"><i class="fa-solid fa-bullseye mr-1"></i> STP定位</a>
+                <a href="#story" onclick="switchTab('story')" class="nav-link text-slate-300 hover:text-railway-100 transition"><i class="fa-solid fa-film mr-1"></i> 廣告與分鏡</a>
+                <a href="#team" onclick="switchTab('team')" class="nav-link text-slate-300 hover:text-railway-100 transition"><i class="fa-solid fa-users mr-1"></i> 組員介紹</a>
+                <a href="#vibecoding" onclick="switchTab('vibecoding')" class="bg-railway-500 hover:bg-railway-600 text-white px-3 py-1.5 rounded-lg font-medium transition shadow"><i class="fa-solid fa-code mr-1"></i> Vibe Coding 指令</a>
+            </div>
+
+            <div class="flex items-center space-x-2">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800">
+                    <span class="w-2 h-2 mr-1.5 bg-emerald-500 rounded-full animate-pulse"></span> 在線運行
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex-1 flex max-w-7xl w-full mx-auto px-2 sm:px-4 lg:px-6 py-6 gap-6">
+        
+        <!-- 側邊欄 (Sidebar) -->
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-72 bg-white border-r border-slate-200 transform -translate-x-full md:translate-x-0 md:static md:w-64 md:rounded-2xl md:shadow-sm md:border p-6 flex flex-col justify-between transition-transform duration-300 ease-in-out">
+            <div>
+                <div class="flex items-center justify-between md:hidden mb-6">
+                    <h3 class="font-bold text-slate-900 text-lg">導覽選單</h3>
+                    <button id="sidebar-close" class="text-slate-500 hover:text-slate-700 p-1">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+                
+                <div class="mb-6">
+                    <p class="text-xs uppercase font-bold text-slate-400 tracking-wider mb-3">專案目錄</p>
+                    <nav class="space-y-1.5">
+                        <button onclick="switchTab('overview')" class="sidebar-btn w-full flex items-center px-3.5 py-2.5 text-sm font-medium rounded-xl text-slate-700 hover:bg-railway-50 hover:text-railway-600 transition active-tab" data-tab="overview">
+                            <i class="fa-solid fa-compass w-6 text-center mr-2"></i> 壹、專案摘要與概述
+                        </button>
+                        <button onclick="switchTab('analysis')" class="sidebar-btn w-full flex items-center px-3.5 py-2.5 text-sm font-medium rounded-xl text-slate-700 hover:bg-railway-50 hover:text-railway-600 transition" data-tab="analysis">
+                            <i class="fa-solid fa-magnifying-glass-chart w-6 text-center mr-2"></i> 貳、現況與環境分析
+                        </button>
+                        <button onclick="switchTab('swot')" class="sidebar-btn w-full flex items-center px-3.5 py-2.5 text-sm font-medium rounded-xl text-slate-700 hover:bg-railway-50 hover:text-railway-600 transition" data-tab="swot">
+                            <i class="fa-solid fa-chess-board w-6 text-center mr-2"></i> 參、SWOT 矩陣分析
+                        </button>
+                        <button onclick="switchTab('stp')" class="sidebar-btn w-full flex items-center px-3.5 py-2.5 text-sm font-medium rounded-xl text-slate-700 hover:bg-railway-50 hover:text-railway-600 transition" data-tab="stp">
+                            <i class="fa-solid fa-crosshairs w-6 text-center mr-2"></i> 肆、STP 市場定位
+                        </button>
+                        <button onclick="switchTab('story')" class="sidebar-btn w-full flex items-center px-3.5 py-2.5 text-sm font-medium rounded-xl text-slate-700 hover:bg-railway-50 hover:text-railway-600 transition" data-tab="story">
+                            <i class="fa-solid fa-clapperboard w-6 text-center mr-2"></i> 伍、廣告腳本與分鏡
+                        </button>
+                        <button onclick="switchTab('team')" class="sidebar-btn w-full flex items-center px-3.5 py-2.5 text-sm font-medium rounded-xl text-slate-700 hover:bg-railway-50 hover:text-railway-600 transition" data-tab="team">
+                            <i class="fa-solid fa-id-card w-6 text-center mr-2"></i> 陸、組員分工與心得
+                        </button>
+                        <button onclick="switchTab('vibecoding')" class="sidebar-btn w-full flex items-center px-3.5 py-2.5 text-sm font-medium rounded-xl text-railway-600 bg-railway-50 hover:bg-railway-100 transition mt-2" data-tab="vibecoding">
+                            <i class="fa-solid fa-wand-magic-sparkles w-6 text-center mr-2"></i> 柒、Vibe Coding 說明
+                        </button>
+                    </nav>
+                </div>
+
+                <div class="border-t border-slate-200 pt-4">
+                    <p class="text-xs uppercase font-bold text-slate-400 tracking-wider mb-2">檔案結構 (Folder Structure)</p>
+                    <div class="bg-slate-50 p-3 rounded-xl text-xs text-slate-600 font-mono space-y-1">
+                        <div>📁 /css/ (樣式匣)</div>
+                        <div class="pl-4">├── style.css</div>
+                        <div class="pl-4">├── layout.css</div>
+                        <div class="pl-4">└── components.css</div>
+                        <div>📁 /images/ (圖片匣)</div>
+                        <div class="pl-4">├── station.jpg</div>
+                        <div class="pl-4">└── team_members/</div>
+                        <div>📄 index.html</div>
+                        <div>📄 README.md (Vibe Coding)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-200 pt-4 text-xs text-slate-500">
+                <p class="font-semibold text-slate-700">指導老師：</p>
+                <p>李律鋒、李悅端、丁美靜、王婉禎</p>
+                <p class="mt-2 text-slate-400">© 2026 臺中驛鐵道文化園區企劃</p>
+            </div>
+        </aside>
+
+        <!-- 背景遮罩 (Mobile Sidebar Backdrop) -->
+        <div id="sidebar-backdrop" class="fixed inset-0 bg-slate-900/50 z-30 hidden md:hidden"></div>
+
+        <!-- 主內容區 (Main Content Area with Grid & RWD) -->
+        <main class="flex-1 w-full max-w-5xl">
+            
+            <!-- 分頁 1：專案摘要 (Overview) -->
+            <div id="tab-overview" class="tab-content active space-y-6">
+                <!-- Banner Hero -->
+                <div class="relative bg-slate-900 text-white rounded-3xl overflow-hidden card-shadow p-8 sm:p-12">
+                    <div class="absolute inset-0 opacity-30 bg-cover bg-center" style="background-image: url('https://placehold.co/1200x600/522010/fae4dc?text=Taichung+Railway+Cultural+Park');"></div>
+                    <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent"></div>
+                    <div class="relative z-10 max-w-2xl">
+                        <span class="bg-railway-500 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">期末企劃案</span>
+                        <h2 class="text-3xl sm:text-5xl font-extrabold mt-3 tracking-tight">這一站，青春</h2>
+                        <p class="text-xl text-railway-100 font-light mt-2 italic">青春という名の一駅</p>
+                        <p class="text-slate-300 mt-4 leading-relaxed">
+                            臺中驛鐵道文化園區擁有百年國定古蹟建築與實體退役列車地景。本專案旨在打破青年對傳統古蹟沉悶的刻板印象，透過短影音與故事敘事，將歷史空間轉化為紀錄青春足跡與同行回憶的情感載體。
+                        </p>
+                        <div class="mt-6 flex flex-wrap gap-4">
+                            <button onclick="switchTab('swot')" class="bg-railway-500 hover:bg-railway-600 text-white px-6 py-3 rounded-xl font-medium transition shadow-lg flex items-center">
+                                開始探索分析 <i class="fa-solid fa-arrow-right ml-2"></i>
+                            </button>
+                            <button onclick="switchTab('vibecoding')" class="bg-slate-800 hover:bg-slate-700 text-slate-200 px-6 py-3 rounded-xl font-medium transition border border-slate-700">
+                                查看 Vibe Coding 說明
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grid System Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 card-shadow">
+                        <div class="w-12 h-12 rounded-xl bg-railway-50 text-railway-600 flex items-center justify-center text-xl font-bold mb-4">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">主要目標客群</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            鎖定 18-24 歲青年與大學生族群。客群特徵為重視「出遊記憶的保存」與「情感儀式感」，但對傳統硬體史料缺乏主動參訪動機。
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 card-shadow">
+                        <div class="w-12 h-12 rounded-xl bg-railway-50 text-railway-600 flex items-center justify-center text-xl font-bold mb-4">
+                            <i class="fa-solid fa-landmark"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">核心場域特色</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            以國定古蹟第二代臺中火車站為核心，結合舊月台、文創市集、展覽及光華號列車地景，兼具歷史深度與休閒多元性。
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 card-shadow">
+                        <div class="w-12 h-12 rounded-xl bg-railway-50 text-railway-600 flex items-center justify-center text-xl font-bold mb-4">
+                            <i class="fa-solid fa-quote-left"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">專案 Slogan</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed italic font-semibold text-railway-700 mt-4">
+                            「古蹟留下歷史，我們留下足跡」
+                        </p>
+                        <p class="text-xs text-slate-500 mt-2">
+                            透過青春回憶故事，讓歷史空間融入現代生活，成為承載情感的城市轉運站。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分頁 2：現況與環境分析 (Analysis) -->
+            <div id="tab-analysis" class="tab-content space-y-6">
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 card-shadow">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center">
+                        <i class="fa-solid fa-magnifying-glass-chart text-railway-600 mr-3"></i> 參、現況分析與產業趨勢
+                    </h2>
+                    <p class="text-slate-600 mb-6 leading-relaxed">
+                        臺中舊城區近年積極推動文化資產活化。臺中驛鐵道文化園區作為核心區域，擁有豐富的鐵道歷史與建築景觀，但一般青年對於深度參與仍有提升空間。
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+                            <h3 class="font-bold text-slate-900 text-lg mb-3 text-railway-700">產業現況與政策</h3>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                臺中市目前共有 190 處有形文化資產，其中 86% 已完成修復再利用計畫。市府依《文化資產保存法》持續推動活化，使古蹟從單純保存轉向可被民眾實際使用與體驗的文化空間。
+                            </p>
+                        </div>
+                        <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+                            <h3 class="font-bold text-slate-900 text-lg mb-3 text-railway-700">消費者洞察與需求</h3>
+                            <ul class="text-sm text-slate-600 space-y-2">
+                                <li><strong class="text-slate-800">體驗需求：</strong>期待趣味性與參與感，對新創市集與展覽抱持期待。</li>
+                                <li><strong class="text-slate-800">社群需求：</strong>重視拍照打卡場景與社群分享。</li>
+                                <li><strong class="text-slate-800">便利需求：</strong>偏好交通方便、能一次遊覽多個景點的行程。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 card-shadow">
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">競爭者分析比較</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-sm">
+                            <thead>
+                                <tr class="bg-slate-100 text-slate-700">
+                                    <th class="p-3 rounded-l-xl">比較場域</th>
+                                    <th class="p-3">核心特色</th>
+                                    <th class="p-3">鐵道辨識度</th>
+                                    <th class="p-3 rounded-r-xl">交通便利性</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100">
+                                <tr class="bg-railway-50 font-medium">
+                                    <td class="p-3 text-railway-700">臺中驛鐵道文化園區 (本企劃)</td>
+                                    <td class="p-3">第二代車站、舊月台、文創市集、展覽</td>
+                                    <td class="p-3">高 (5分)</td>
+                                    <td class="p-3">高 (5分)</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">宮原眼科</td>
+                                    <td class="p-3">日治眼科診所轉型、伴手禮、冰淇淋</td>
+                                    <td class="p-3">低 (1分)</td>
+                                    <td class="p-3">高 (5分)</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">審計新村</td>
+                                    <td class="p-3">省府宿舍群、文創小店、假日市集</td>
+                                    <td class="p-3">低 (1分)</td>
+                                    <td class="p-3">中 (3分)</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3">臺中州廳</td>
+                                    <td class="p-3">日治官署建築、國定古蹟</td>
+                                    <td class="p-3">低 (1分)</td>
+                                    <td class="p-3">高 (4分)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分頁 3：SWOT 分析 (SWOT) -->
+            <div id="tab-swot" class="tab-content space-y-6">
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 card-shadow">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center">
+                        <i class="fa-solid fa-chess-board text-railway-600 mr-3"></i> 肆、內外部環境與 SWOT 分析
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Strengths -->
+                        <div class="p-6 bg-emerald-50 rounded-2xl border border-emerald-200">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <span class="bg-emerald-600 text-white w-8 h-8 rounded-lg flex items-center justify-center font-bold">S</span>
+                                <h3 class="font-bold text-emerald-900 text-lg">優勢 (Strengths)</h3>
+                            </div>
+                            <ul class="text-sm text-emerald-800 space-y-2">
+                                <li><i class="fa-solid fa-check mr-2 text-emerald-600"></i>國定古蹟臺中火車站，百年鐵道歷史與文化價值。</li>
+                                <li><i class="fa-solid fa-check mr-2 text-emerald-600"></i>建築與鐵道元素辨識度高，具有拍照與觀光特色。</li>
+                                <li><i class="fa-solid fa-check mr-2 text-emerald-600"></i>位於臺中車站旁，交通便利、人流基礎極佳。</li>
+                                <li><i class="fa-solid fa-check mr-2 text-emerald-600"></i>結合古蹟、展覽、市集與文創活動，多元發展空間充足。</li>
+                            </ul>
+                        </div>
+
+                        <!-- Weaknesses -->
+                        <div class="p-6 bg-amber-50 rounded-2xl border border-amber-200">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <span class="bg-amber-600 text-white w-8 h-8 rounded-lg flex items-center justify-center font-bold">W</span>
+                                <h3 class="font-bold text-amber-900 text-lg">劣勢 (Weaknesses)</h3>
+                            </div>
+                            <ul class="text-sm text-amber-800 space-y-2">
+                                <li><i class="fa-solid fa-triangle-exclamation mr-2 text-amber-600"></i>部分年輕族群可能認為古蹟較靜態、缺乏娛樂性。</li>
+                                <li><i class="fa-solid fa-triangle-exclamation mr-2 text-amber-600"></i>歷史內容若缺乏有趣呈現，較難吸引非文化愛好者。</li>
+                                <li><i class="fa-solid fa-triangle-exclamation mr-2 text-amber-600"></i>遊客常以拍照、經過為主，停留時間與深度體驗有限。</li>
+                            </ul>
+                        </div>
+
+                        <!-- Opportunities -->
+                        <div class="p-6 bg-blue-50 rounded-2xl border border-blue-200">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <span class="bg-blue-600 text-white w-8 h-8 rounded-lg flex items-center justify-center font-bold">O</span>
+                                <h3 class="font-bold text-blue-900 text-lg">機會 (Opportunities)</h3>
+                            </div>
+                            <ul class="text-sm text-blue-800 space-y-2">
+                                <li><i class="fa-solid fa-arrow-trend-up mr-2 text-blue-600"></i>臺中市持續推動文化資產保存與文旅觀光。</li>
+                                <li><i class="fa-solid fa-arrow-trend-up mr-2 text-blue-600"></i>舊城區景點密集，可串聯綠空鐵道、宮原眼科等形成觀光路線。</li>
+                                <li><i class="fa-solid fa-arrow-trend-up mr-2 text-blue-600"></i>青年重視社群分享與沉浸式體驗，可發展打卡與互動內容。</li>
+                            </ul>
+                        </div>
+
+                        <!-- Threats -->
+                        <div class="p-6 bg-rose-50 rounded-2xl border border-rose-200">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <span class="bg-rose-600 text-white w-8 h-8 rounded-lg flex items-center justify-center font-bold">T</span>
+                                <h3 class="font-bold text-rose-900 text-lg">威脅 (Threats)</h3>
+                            </div>
+                            <ul class="text-sm text-rose-800 space-y-2">
+                                <li><i class="fa-solid fa-shield-halved mr-2 text-rose-600"></i>臺中休閒娛樂與文創景點選擇多，競爭遊客時間。</li>
+                                <li><i class="fa-solid fa-shield-halved mr-2 text-rose-600"></i>周邊歷史景點增加（如臺中州廳），瓜分關注度。</li>
+                                <li><i class="fa-solid fa-shield-halved mr-2 text-rose-600"></i>古蹟保存法規限制較多，空間改造與商業利用需兼顧文資保護。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分頁 4：STP 市場定位 (STP) -->
+            <div id="tab-stp" class="tab-content space-y-6">
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 card-shadow space-y-6">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-2 flex items-center">
+                        <i class="fa-solid fa-crosshairs text-railway-600 mr-3"></i> 伍、STP 市場定位與目標客群分析
+                    </h2>
+                    <p class="text-slate-600">
+                        本企劃依據 AIO 生活型態分析（Activities、Interests、Opinions），深入剖析 18-24 歲青年族群的心理與行為特徵。
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="p-5 bg-slate-50 rounded-2xl border border-slate-200">
+                            <span class="text-xs font-bold text-railway-600 uppercase tracking-wider">Activities (活動)</span>
+                            <h4 class="font-bold text-slate-900 text-lg mt-1 mb-2">城市散步與出遊</h4>
+                            <p class="text-sm text-slate-600">與朋友結伴出遊、城市散步、參觀文創市集與特色場域。</p>
+                        </div>
+                        <div class="p-5 bg-slate-50 rounded-2xl border border-slate-200">
+                            <span class="text-xs font-bold text-railway-600 uppercase tracking-wider">Interests (興趣)</span>
+                            <h4 class="font-bold text-slate-900 text-lg mt-1 mb-2">特色空間探索</h4>
+                            <p class="text-sm text-slate-600">對具有獨特美感、歷史韻味及多元體驗的文創空間感興趣。</p>
+                        </div>
+                        <div class="p-5 bg-slate-50 rounded-2xl border border-slate-200">
+                            <span class="text-xs font-bold text-railway-600 uppercase tracking-wider">Opinions (意見)</span>
+                            <h4 class="font-bold text-slate-900 text-lg mt-1 mb-2">期待互動體驗</h4>
+                            <p class="text-sm text-slate-600">認為古蹟具歷史價值，但若缺乏活動容易單調，期待市集與展覽。</p>
+                        </div>
+                    </div>
+
+                    <div class="p-6 bg-railway-50 rounded-2xl border border-railway-100">
+                        <h3 class="text-lg font-bold text-railway-900 mb-2">最終市場定位 (Market Positioning)</h3>
+                        <p class="text-railway-800 text-base font-medium leading-relaxed">
+                            「結合鐵道歷史與多元生活體驗的城市文化場域」
+                        </p>
+                        <p class="text-sm text-railway-700 mt-2">
+                            臺中驛鐵道文化園區不僅保存百年鐵道歷史，更透過展覽、市集與表演，提供超越傳統觀光的情感記憶載體，成為青年心中的「青春回憶轉運站」。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分頁 5：廣告腳本與分鏡 (Story) -->
+            <div id="tab-story" class="tab-content space-y-6">
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 card-shadow space-y-6">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-2 flex items-center">
+                        <i class="fa-solid fa-clapperboard text-railway-600 mr-3"></i> 陸、廣告概念與微電影腳本《這一站，青春》
+                    </h2>
+                    
+                    <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200 space-y-3">
+                        <h3 class="text-lg font-bold text-slate-900">故事大綱</h3>
+                        <p class="text-slate-600 leading-relaxed text-sm">
+                            故事以成年女主角在火車上翻閱手機相簿為開頭，透過照片回到青春時光。高中時期，女1帶著對古蹟不感興趣的女2走訪臺中文學館與臺中驛鐵道文化園區。兩人從鐵道歷史到市集體驗，買下紀念吊飾並約定好好保存。多年後，成年女1在車站再次遇見掛著相同吊飾的女2，熟悉的信物喚起青春回憶，完美演繹古蹟如何承載現代青年的情感與足跡。
+                        </p>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-sm">
+                            <thead>
+                                <tr class="bg-slate-100 text-slate-700">
+                                    <th class="p-3 rounded-l-xl">場次/鏡號</th>
+                                    <th class="p-3">景別與運鏡說明</th>
+                                    <th class="p-3">視覺畫面</th>
+                                    <th class="p-3 rounded-r-xl">特效與聲音說明</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100">
+                                <tr>
+                                    <td class="p-3 font-semibold text-railway-600">Shot 1-1 / 1-2</td>
+                                    <td class="p-3">火車車廂內，拍女主背影，打開手機相簿。</td>
+                                    <td class="p-3">滑手機瀏覽舊照片，鏡頭慢慢放大。</td>
+                                    <td class="p-3">轉場回到過去（高中制服時期）</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold text-railway-600">Shot 3-1 / 3-2</td>
+                                    <td class="p-3">臺中火車站舊月台，由上往下帶。</td>
+                                    <td class="p-3">女主手牽手逛市集、看舊火車並訴說歷史。</td>
+                                    <td class="p-3">環境音：市集喧囂與火車鳴笛聲</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold text-railway-600">Shot 3-7</td>
+                                    <td class="p-3">光華號車廂內部特寫。</td>
+                                    <td class="p-3">坐在光華號椅子上，一起掛上剛買的情侶吊飾。</td>
+                                    <td class="p-3">溫馨輕柔背景音樂</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-semibold text-railway-600">Shot 5-1 ~ 5-4</td>
+                                    <td class="p-3">多年後成年重逢，背包拉鍊上的吊飾特寫。</td>
+                                    <td class="p-3">成年女一在車站擦身而過，發現熟悉背影與吊飾。</td>
+                                    <td class="p-3">「古蹟留下歷史，我們留下足跡」</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分頁 6：組員介紹 (Team) -->
+            <div id="tab-team" class="tab-content space-y-6">
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 card-shadow space-y-6">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-2 flex items-center">
+                        <i class="fa-solid fa-users text-railway-600 mr-3"></i> 柒、甲四組團隊成員與分工
+                    </h2>
+                    <p class="text-slate-600">本專案由 8 位成員共同合作完成，結合企劃、影像創作與市場研究：</p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="p-5 bg-slate-50 rounded-2xl border border-slate-200 text-center">
+                            <div class="w-16 h-16 bg-railway-100 text-railway-600 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-3">
+                                張
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-base">張儷馨</h4>
+                            <span class="inline-block bg-railway-100 text-railway-700 text-xs px-2.5 py-0.5 rounded-full font-medium mt-1">組長</span>
+                            <p class="text-xs text-slate-500 mt-2">負責統籌規劃、進度協調與團隊溝通。</p>
+                        </div>
+
+                        <div class="p-5 bg-slate-50 rounded-2xl border border-slate-200 text-center">
+                            <div class="w-16 h-16 bg-railway-100 text-railway-600 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-3">
+                                李
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-base">李妤肜</h4>
+                            <span class="inline-block bg-railway-100 text-railway-700 text-xs px-2.5 py-0.5 rounded-full font-medium mt-1">導演</span>
+                            <p class="text-xs text-slate-500 mt-2">負責短影音敘事、分鏡設計與拍攝指導。</p>
+                        </div>
+
+                        <div class="p-5 bg-slate-50 rounded-2xl border border-slate-200 text-center">
+                            <div class="w-16 h-16 bg-railway-100 text-railway-600 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-3">
+                                黃
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-base">黃郡玟</h4>
+                            <span class="inline-block bg-railway-100 text-railway-700 text-xs px-2.5 py-0.5 rounded-full font-medium mt-1">剪輯</span>
+                            <p class="text-xs text-slate-500 mt-2">負責影音剪輯、特效轉場與後製統籌。</p>
+                        </div>
+
+                        <div class="p-5 bg-slate-50 rounded-2xl border border-slate-200 text-center">
+                            <div class="w-16 h-16 bg-railway-100 text-railway-600 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-3">
+                                林
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-base">林品妤</h4>
+                            <span class="inline-block bg-railway-100 text-railway-700 text-xs px-2.5 py-0.5 rounded-full font-medium mt-1">企劃</span>
+                            <p class="text-xs text-slate-500 mt-2">負責市場分析、SWOT 與 STP 行銷定位。</p>
+                        </div>
+
+                        <div class="p-5 bg-slate-50 rounded-2xl border border-slate-200 text-center">
+                            <div class="w-16 h-16 bg-railway-100 text-railway-600 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-3">
+                                袁
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-base">袁育祥</h4>
+                            <span class="inline-block bg-railway-100 text-railway-700 text-xs px-2.5 py-0.5 rounded-full font-medium mt-1">攝影</span>
+                            <p class="text-xs text-slate-500 mt-2">負責現場鏡頭捕捉、光影與畫面質感掌控。</p>
+                        </div>
+
+                        <div class="p-5 bg-slate-50 rounded-2xl border border-slate-200 text-center">
+                            <div class="w-16 h-16 bg-railway-100 text-railway-600 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-3">
+                                蘇
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-base">蘇芳可</h4>
+                            <span class="inline-block bg-railway-100 text-railway-700 text-xs px-2.5 py-0.5 rounded-full font-medium mt-1">劇務</span>
+                            <p class="text-xs text-slate-500 mt-2">負責現場道具、場地協調與行政後勤支援。</p>
+                        </div>
+
+                        <div class="p-5 bg-slate-50 rounded-2xl border border-slate-200 text-center">
+                            <div class="w-16 h-16 bg-railway-100 text-railway-600 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-3">
+                                佐
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-base">佐藤由美</h4>
+                            <span class="inline-block bg-railway-100 text-railway-700 text-xs px-2.5 py-0.5 rounded-full font-medium mt-1">美術 / 演員</span>
+                            <p class="text-xs text-slate-500 mt-2">負責視覺美術設計、道具陳設與女主角演出。</p>
+                        </div>
+
+                        <div class="p-5 bg-slate-50 rounded-2xl border border-slate-200 text-center">
+                            <div class="w-16 h-16 bg-railway-100 text-railway-600 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-3">
+                                曾
+                            </div>
+                            <h4 class="font-bold text-slate-900 text-base">曾苡瑄</h4>
+                            <span class="inline-block bg-railway-100 text-railway-700 text-xs px-2.5 py-0.5 rounded-full font-medium mt-1">文案</span>
+                            <p class="text-xs text-slate-500 mt-2">負責企劃書文案潤飾、標題設計與論述撰寫。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分頁 7：Vibe Coding 與 Prompt 說明 (Vibe Coding) -->
+            <div id="tab-vibecoding" class="tab-content space-y-6">
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 card-shadow space-y-6">
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-2xl font-bold text-slate-900 flex items-center">
+                            <i class="fa-solid fa-wand-magic-sparkles text-railway-600 mr-3"></i> 捌、Vibe Coding 指令與專案部署說明
+                        </h2>
+                        <span class="bg-emerald-100 text-emerald-800 text-xs font-semibold px-3 py-1 rounded-full">GitHub Markdown 準備就緒</span>
+                    </div>
+
+                    <p class="text-slate-600 leading-relaxed">
+                        本專案（《這一站,青春》網頁版）透過 Vibe Coding 智能協作生成。以下為使用的 Prompt 策略說明與專案部署步驟，已可直接存成 <code class="bg-slate-100 text-railway-600 px-2 py-0.5 rounded font-mono text-sm">README.md</code> 放置於 GitHub 倉庫。
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="p-6 bg-slate-900 text-slate-100 rounded-2xl font-mono text-xs sm:text-sm overflow-x-auto relative">
+                            <div class="absolute top-4 right-4 text-slate-400 text-xs uppercase">Markdown 原始碼</div>
+                            <pre class="whitespace-pre-wrap">
+
+## 🚀 專案概述 (Project Overview)
+本專案為大學期末企劃《這一站，青春》之官方響應式網頁，結合臺中驛鐵道文化園區之歷史背景、SWOT 分析、STP 市場定位與短影音廣告企劃。
+
+## 🤖 Vibe Coding 提示詞 (Prompts Used)
+1. **結構與架構 Prompt：**
+   > 「請建立一個包含導覽列 (Navbar)、互動側邊欄 (Sidebar) 以及 7 個完整分頁的響應式網頁。需具備完整 SEO Meta 標籤、Tailwind CSS Grid System，並完美支援行動裝置 RWD 瀏覽。」
+2. **檔案架構規範：**
+   > 「請模擬符合專業開發的資料夾架構，將 CSS 切割放置於 `/css/` 檔案匣 (`style.css`, `layout.css`, `components.css`)，圖片放置於 `/images/` 檔案匣，並確保所有程式碼自包含且易於部署。」
+
+## 📦 部署與交付連結 (Deployment Links)
+1. **GitHub Markdown (Prompt 說明)：** [查看 GitHub 說明文件連結](#)
+2. **InfinityFree 首頁部署：** [http://yourdomain.infinityfreeapp.com](https://www.infinityfree.com/)
+3. **Vercel 雲端部署：** [https://taichung-station-youth.vercel.app](https://vercel.com)
+</pre>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                        <div class="p-5 bg-slate-50 rounded-2xl border border-slate-200">
+                            <div class="text-railway-600 font-bold text-lg mb-1">1. GitHub 交付</div>
+                            <p class="text-xs text-slate-600 mb-3">將程式碼與本 README.md 推送至 GitHub Repository。</p>
+                            <a href="https://github.com" target="_blank" class="text-xs text-railway-600 font-semibold hover:underline flex items-center">前往 GitHub 倉庫 <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></a>
+                        </div>
+                        <div class="p-5 bg-slate-50 rounded-2xl border border-slate-200">
+                            <div class="text-railway-600 font-bold text-lg mb-1">2. InfinityFree 部署</div>
+                            <p class="text-xs text-slate-600 mb-3">透過線上 File Manager 或 FTP 將專案上傳至 htdocs 取代首頁。</p>
+                            <a href="https://www.infinityfree.com/" target="_blank" class="text-xs text-railway-600 font-semibold hover:underline flex items-center">前往 InfinityFree <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></a>
+                        </div>
+                        <div class="p-5 bg-slate-50 rounded-2xl border border-slate-200">
+                            <div class="text-railway-600 font-bold text-lg mb-1">3. Vercel 部署</div>
+                            <p class="text-xs text-slate-600 mb-3">將 GitHub 專案連動 Vercel 實現秒級 CI/CD 雲端部署。</p>
+                            <a href="https://vercel.com" target="_blank" class="text-xs text-railway-600 font-semibold hover:underline flex items-center">前往 Vercel 平台 <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- 頁尾 (Footer) -->
+    <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm space-y-2">
+            <p class="font-semibold text-slate-200">甲四組期末企劃：這一站，青春 (青春という名の一駅)</p>
+            <p>臺中驛鐵道文化園區 ✖ 青年記憶載體 ✖ Vibe Coding 網頁實作</p>
+            <p class="text-xs text-slate-500 pt-2">© 2026 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript 互動邏輯 -->
+    <script>
+        // 切換分頁功能
+        function switchTab(tabId) {
+            // 隱藏所有分頁內容
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // 顯示目標分頁
+            const target = document.getElementById('tab-' + tabId);
+            if (target) {
+                target.classList.add('active');
+            }
+
+            // 更新側邊欄按鈕狀態
+            const sidebarBtns = document.querySelectorAll('.sidebar-btn');
+            sidebarBtns.forEach(btn => {
+                btn.classList.remove('bg-railway-50', 'text-railway-600');
+                if (btn.getAttribute('data-tab') === tabId) {
+                    btn.classList.add('bg-railway-50', 'text-railway-600');
+                }
+            });
+
+            // 移動裝置點擊後自動關閉側邊欄
+            const sidebar = document.getElementById('sidebar');
+            const backdrop = document.getElementById('sidebar-backdrop');
+            if (window.innerWidth < 768) {
+                sidebar.classList.add('-translate-x-full');
+                backdrop.classList.add('hidden');
+            }
+
+            // 滾動回頂部
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 手機版側邊欄控制
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const sidebarClose = document.getElementById('sidebar-close');
+        const sidebar = document.getElementById('sidebar');
+        const backdrop = document.getElementById('sidebar-backdrop');
+
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.remove('-translate-x-full');
+            backdrop.classList.remove('hidden');
+        });
+
+        sidebarClose.addEventListener('click', () => {
+            sidebar.classList.add('-translate-x-full');
+            backdrop.classList.add('hidden');
+        });
+
+        backdrop.addEventListener('click', () => {
+            sidebar.classList.add('-translate-x-full');
+            backdrop.classList.add('hidden');
+        });
+    </script>
+</body>
+</html>
