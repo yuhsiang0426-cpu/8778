@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>這一站，青春｜臺中驛鐵道文化園區期末企劃</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="臺中驛鐵道文化園區期末企劃《這一站，青春》官方網站。結合鐵道歷史與多元生活體驗的城市文化場域。">
+    <meta name="keywords" content="臺中驛鐵道文化園區, 這一站青春, 臺中火車站, 古蹟活化, 青年文創">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        railway: {
+                            50: '#fdf4f0',
+                            100: '#fae4dc',
+                            500: '#c25e38',
+                            600: '#a34827',
+                            700: '#84371d',
+                            900: '#522010',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+    <!-- 頂部導覽列 -->
+    <header class="bg-slate-900 text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-railway-500 text-white p-2 rounded-xl shadow">
+                    <i class="fa-solid fa-train-subway text-xl"></i>
+                </div>
+                <div>
+                    <span class="text-xs text-railway-100 font-medium block">甲四組期末企劃</span>
+                    <h1 class="text-lg font-bold tracking-wider">這一站，青春</h1>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center space-x-6 text-sm">
+                <a href="#" onclick="switchTab('overview')" class="text-slate-300 hover:text-railway-100">專案摘要</a>
+                <a href="#" onclick="switchTab('swot')" class="text-slate-300 hover:text-railway-100">SWOT分析</a>
+                <a href="#" onclick="switchTab('stp')" class="text-slate-300 hover:text-railway-100">STP定位</a>
+                <a href="#" onclick="switchTab('story')" class="text-slate-300 hover:text-railway-100">廣告腳本</a>
+                <a href="#" onclick="switchTab('team')" class="text-slate-300 hover:text-railway-100">組員介紹</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex-1 flex max-w-7xl w-full mx-auto px-4 py-6 gap-6">
+        <!-- 側邊欄 -->
+        <aside class="w-64 bg-white rounded-2xl shadow-sm border p-6 hidden md:block">
+            <p class="text-xs uppercase font-bold text-slate-400 mb-3">選單目錄</p>
+            <nav class="space-y-2">
+                <button onclick="switchTab('overview')" class="w-full text-left px-3 py-2 rounded-xl text-slate-700 hover:bg-railway-50 hover:text-railway-600 font-medium">壹、專案摘要</button>
+                <button onclick="switchTab('swot')" class="w-full text-left px-3 py-2 rounded-xl text-slate-700 hover:bg-railway-50 hover:text-railway-600 font-medium">貳、SWOT分析</button>
+                <button onclick="switchTab('stp')" class="w-full text-left px-3 py-2 rounded-xl text-slate-700 hover:bg-railway-50 hover:text-railway-600 font-medium">參、STP市場定位</button>
+                <button onclick="switchTab('story')" class="w-full text-left px-3 py-2 rounded-xl text-slate-700 hover:bg-railway-50 hover:text-railway-600 font-medium">肆、廣告分鏡</button>
+                <button onclick="switchTab('team')" class="w-full text-left px-3 py-2 rounded-xl text-slate-700 hover:bg-railway-50 hover:text-railway-600 font-medium">伍、組員介紹</button>
+            </nav>
+        </aside>
+
+        <!-- 主內容 -->
+        <main class="flex-1">
+            <div id="tab-overview" class="tab-content active bg-white p-8 rounded-3xl border shadow-sm">
+                <h2 class="text-3xl font-extrabold text-slate-900 mb-4">這一站，青春</h2>
+                <p class="text-slate-600 leading-relaxed">
+                    臺中驛鐵道文化園區擁有百年國定古蹟建築與實體退役列車地景。本企劃透過故事型短影音《這一站，青春》，將歷史古蹟轉化為紀錄青春足跡與同行回憶的情感載體。
+                </p>
+            </div>
+
+            <div id="tab-swot" class="tab-content bg-white p-8 rounded-3xl border shadow-sm">
+                <h2 class="text-2xl font-bold mb-4">SWOT 分析</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 bg-emerald-50 rounded-xl"><strong>S 優勢：</strong>百年國定古蹟，位於台中車站旁交通極佳。</div>
+                    <div class="p-4 bg-amber-50 rounded-xl"><strong>W 劣勢：</strong>部分青年認為古蹟靜態、缺乏娛樂性。</div>
+                    <div class="p-4 bg-blue-50 rounded-xl"><strong>O 機會：</strong>串聯舊城區景點，青年重視社群拍照打卡。</div>
+                    <div class="p-4 bg-rose-50 rounded-xl"><strong>T 威脅：</strong>周邊商圈競品多，古蹟保存維護限制大。</div>
+                </div>
+            </div>
+
+            <div id="tab-stp" class="tab-content bg-white p-8 rounded-3xl border shadow-sm">
+                <h2 class="text-2xl font-bold mb-4">STP 市場定位</h2>
+                <p class="text-slate-700 font-semibold mb-2">目標客群：18-24歲青年與大學生</p>
+                <div class="p-4 bg-railway-50 rounded-xl border border-railway-100">
+                    <strong>核心定位：</strong>結合鐵道歷史與多元生活體驗的城市文化場域
+                </div>
+            </div>
+
+            <div id="tab-story" class="tab-content bg-white p-8 rounded-3xl border shadow-sm">
+                <h2 class="text-2xl font-bold mb-4">廣告大綱與 Slogan</h2>
+                <p class="italic font-bold text-railway-700 text-lg mb-4">「古蹟留下歷史，我們留下足跡」</p>
+                <p class="text-slate-600">透過兩位少女從高中走訪古蹟到多年後在車站憑藉紀念吊飾重逢的故事，帶出鐵道園區對青春記憶的承載功能。</p>
+            </div>
+
+            <div id="tab-team" class="tab-content bg-white p-8 rounded-3xl border shadow-sm">
+                <h2 class="text-2xl font-bold mb-4">組員名單 (甲四組)</h2>
+                <ul class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+                    <li class="p-4 bg-slate-50 rounded-xl">張儷馨 (組長)</li>
+                    <li class="p-4 bg-slate-50 rounded-xl">李妤肜 (導演)</li>
+                    <li class="p-4 bg-slate-50 rounded-xl">黃郡玟 (剪輯)</li>
+                    <li class="p-4 bg-slate-50 rounded-xl">林品妤 (企劃)</li>
+                    <li class="p-4 bg-slate-50 rounded-xl">袁育祥 (攝影)</li>
+                    <li class="p-4 bg-slate-50 rounded-xl">蘇芳可 (劇務)</li>
+                    <li class="p-4 bg-slate-50 rounded-xl">佐藤由美 (美術/演員)</li>
+                    <li class="p-4 bg-slate-50 rounded-xl">曾苡瑄 (文案)</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.getElementById('tab-' + tabId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
