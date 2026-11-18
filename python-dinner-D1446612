@@ -1,0 +1,338 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "id": "cell-01",
+      "metadata": {},
+      "source": [
+        "# Python 聚餐費用試算器完整參考解答\n",
+        "\n",
+        "教師參考版。使用變數、字串處理、數字、布林與基本格式化，依題目規定先計算服務費，再扣折價券。\n",
+        "\n",
+        "以下三組測試各自包含完整的輸入、整理、計算與輸出，可各自獨立執行。輸出已由 Python 實際執行產生。"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "id": "cell-02",
+      "metadata": {},
+      "source": [
+        "## 測試一：原始資料\n",
+        "\n",
+        "本組人數為 4 人，折價券為 100 元。請執行下方完整儲存格。"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "id": "cell-03",
+      "metadata": {},
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "聚餐名稱：weekend dinner\n",
+            "原始餐費：1200.00 元\n",
+            "服務費：120.00 元\n",
+            "折價券：100.00 元\n",
+            "應付總額：1220.00 元\n",
+            "分攤人數：4 人\n",
+            "每人費用：305.00 元\n",
+            "每人預算：300.00 元\n",
+            "是否超過預算：True\n"
+          ]
+        }
+      ],
+      "source": [
+        "# 1. 原始資料：保留文字資料，另外建立整理後的變數。\n",
+        "event_name = \"  WEEKEND DINNER  \"\n",
+        "meal_amount = \" NT$1,200 \"\n",
+        "people = \"4\"\n",
+        "\n",
+        "service_rate = 0.10\n",
+        "discount = 100\n",
+        "budget_per_person = 300\n",
+        "\n",
+        "# 2. 整理聚餐名稱。\n",
+        "clean_event_name = event_name.strip().lower()\n",
+        "\n",
+        "# 3. 清理餐費文字，再轉換餐費與人數的型別。\n",
+        "clean_meal_text = meal_amount.replace(\"NT$\", \"\").replace(\",\", \"\").replace(\" \", \"\")\n",
+        "meal_value = float(clean_meal_text)\n",
+        "people_count = int(people)\n",
+        "\n",
+        "# 4. 先按原始餐費計算服務費，再扣除折價券。\n",
+        "service_fee = meal_value * service_rate\n",
+        "total_amount = meal_value + service_fee - discount\n",
+        "amount_per_person = total_amount / people_count\n",
+        "\n",
+        "# 5. 比較結果直接保存為 bool。等於預算時不算超過。\n",
+        "is_over_budget = amount_per_person > budget_per_person\n",
+        "\n",
+        "# 6. 輸出時才將金額格式化為兩位小數。\n",
+        "print(f\"聚餐名稱：{clean_event_name}\")\n",
+        "print(f\"原始餐費：{meal_value:.2f} 元\")\n",
+        "print(f\"服務費：{service_fee:.2f} 元\")\n",
+        "print(f\"折價券：{discount:.2f} 元\")\n",
+        "print(f\"應付總額：{total_amount:.2f} 元\")\n",
+        "print(f\"分攤人數：{people_count} 人\")\n",
+        "print(f\"每人費用：{amount_per_person:.2f} 元\")\n",
+        "print(f\"每人預算：{budget_per_person:.2f} 元\")\n",
+        "print(f\"是否超過預算：{is_over_budget}\")"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "id": "cell-04",
+      "metadata": {},
+      "source": [
+        "## 測試二：只將人數改成 5 人\n",
+        "\n",
+        "本組人數為 5 人，折價券為 100 元。請執行下方完整儲存格。"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "id": "cell-05",
+      "metadata": {},
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "聚餐名稱：weekend dinner\n",
+            "原始餐費：1200.00 元\n",
+            "服務費：120.00 元\n",
+            "折價券：100.00 元\n",
+            "應付總額：1220.00 元\n",
+            "分攤人數：5 人\n",
+            "每人費用：244.00 元\n",
+            "每人預算：300.00 元\n",
+            "是否超過預算：False\n"
+          ]
+        }
+      ],
+      "source": [
+        "# 1. 原始資料：保留文字資料，另外建立整理後的變數。\n",
+        "event_name = \"  WEEKEND DINNER  \"\n",
+        "meal_amount = \" NT$1,200 \"\n",
+        "people = \"5\"\n",
+        "\n",
+        "service_rate = 0.10\n",
+        "discount = 100\n",
+        "budget_per_person = 300\n",
+        "\n",
+        "# 2. 整理聚餐名稱。\n",
+        "clean_event_name = event_name.strip().lower()\n",
+        "\n",
+        "# 3. 清理餐費文字，再轉換餐費與人數的型別。\n",
+        "clean_meal_text = meal_amount.replace(\"NT$\", \"\").replace(\",\", \"\").replace(\" \", \"\")\n",
+        "meal_value = float(clean_meal_text)\n",
+        "people_count = int(people)\n",
+        "\n",
+        "# 4. 先按原始餐費計算服務費，再扣除折價券。\n",
+        "service_fee = meal_value * service_rate\n",
+        "total_amount = meal_value + service_fee - discount\n",
+        "amount_per_person = total_amount / people_count\n",
+        "\n",
+        "# 5. 比較結果直接保存為 bool。等於預算時不算超過。\n",
+        "is_over_budget = amount_per_person > budget_per_person\n",
+        "\n",
+        "# 6. 輸出時才將金額格式化為兩位小數。\n",
+        "print(f\"聚餐名稱：{clean_event_name}\")\n",
+        "print(f\"原始餐費：{meal_value:.2f} 元\")\n",
+        "print(f\"服務費：{service_fee:.2f} 元\")\n",
+        "print(f\"折價券：{discount:.2f} 元\")\n",
+        "print(f\"應付總額：{total_amount:.2f} 元\")\n",
+        "print(f\"分攤人數：{people_count} 人\")\n",
+        "print(f\"每人費用：{amount_per_person:.2f} 元\")\n",
+        "print(f\"每人預算：{budget_per_person:.2f} 元\")\n",
+        "print(f\"是否超過預算：{is_over_budget}\")"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "id": "cell-06",
+      "metadata": {},
+      "source": [
+        "## 測試三：恢復 4 人，折價券改成 220 元\n",
+        "\n",
+        "本組人數為 4 人，折價券為 220 元。請執行下方完整儲存格。"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 3,
+      "id": "cell-07",
+      "metadata": {},
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "聚餐名稱：weekend dinner\n",
+            "原始餐費：1200.00 元\n",
+            "服務費：120.00 元\n",
+            "折價券：220.00 元\n",
+            "應付總額：1100.00 元\n",
+            "分攤人數：4 人\n",
+            "每人費用：275.00 元\n",
+            "每人預算：300.00 元\n",
+            "是否超過預算：False\n"
+          ]
+        }
+      ],
+      "source": [
+        "# 1. 原始資料：保留文字資料，另外建立整理後的變數。\n",
+        "event_name = \"  WEEKEND DINNER  \"\n",
+        "meal_amount = \" NT$1,200 \"\n",
+        "people = \"4\"\n",
+        "\n",
+        "service_rate = 0.10\n",
+        "discount = 220\n",
+        "budget_per_person = 300\n",
+        "\n",
+        "# 2. 整理聚餐名稱。\n",
+        "clean_event_name = event_name.strip().lower()\n",
+        "\n",
+        "# 3. 清理餐費文字，再轉換餐費與人數的型別。\n",
+        "clean_meal_text = meal_amount.replace(\"NT$\", \"\").replace(\",\", \"\").replace(\" \", \"\")\n",
+        "meal_value = float(clean_meal_text)\n",
+        "people_count = int(people)\n",
+        "\n",
+        "# 4. 先按原始餐費計算服務費，再扣除折價券。\n",
+        "service_fee = meal_value * service_rate\n",
+        "total_amount = meal_value + service_fee - discount\n",
+        "amount_per_person = total_amount / people_count\n",
+        "\n",
+        "# 5. 比較結果直接保存為 bool。等於預算時不算超過。\n",
+        "is_over_budget = amount_per_person > budget_per_person\n",
+        "\n",
+        "# 6. 輸出時才將金額格式化為兩位小數。\n",
+        "print(f\"聚餐名稱：{clean_event_name}\")\n",
+        "print(f\"原始餐費：{meal_value:.2f} 元\")\n",
+        "print(f\"服務費：{service_fee:.2f} 元\")\n",
+        "print(f\"折價券：{discount:.2f} 元\")\n",
+        "print(f\"應付總額：{total_amount:.2f} 元\")\n",
+        "print(f\"分攤人數：{people_count} 人\")\n",
+        "print(f\"每人費用：{amount_per_person:.2f} 元\")\n",
+        "print(f\"每人預算：{budget_per_person:.2f} 元\")\n",
+        "print(f\"是否超過預算：{is_over_budget}\")"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "id": "cell-08",
+      "metadata": {},
+      "source": [
+        "## 三組測試摘要\n",
+        "\n",
+        "| 測試 | 人數 | 折價券 | 服務費 | 應付總額 | 每人費用 | 超過每人預算 |\n",
+        "| --- | ---: | ---: | ---: | ---: | ---: | --- |\n",
+        "| 第一組 | 4 | 100 元 | 120 元 | 1,220 元 | 305 元 | `True` |\n",
+        "| 第二組 | 5 | 100 元 | 120 元 | 1,220 元 | 244 元 | `False` |\n",
+        "| 第三組 | 4 | 220 元 | 120 元 | 1,100 元 | 275 元 | `False` |"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "id": "cell-09",
+      "metadata": {},
+      "source": [
+        "## 程式逐步說明\n",
+        "\n",
+        "### 1. 名稱整理\n",
+        "\n",
+        "`event_name.strip().lower()` 先去掉頭尾空白，再轉成小寫，得到 `\"weekend dinner\"`。字串方法回傳新字串，因此用 `clean_event_name` 接住結果，原始 `event_name` 保持不變。\n",
+        "\n",
+        "### 2. 餐費清理與型別轉換\n",
+        "\n",
+        "三次 `replace()` 分別移除 `NT$`、逗號及半形空白，得到文字 `\"1200\"`。`float()` 將它轉成數值 `1200.0`，可以參與乘除計算。人數則用 `int(people)` 轉成整數。\n",
+        "\n",
+        "本題使用題目提供的有效資料，不另外處理其他貨幣符號、無效輸入或零人分攤。\n",
+        "\n",
+        "### 3. 計算順序\n",
+        "\n",
+        "服務費以原始餐費計算，所以三組測試的服務費都是 `1200 × 0.10 = 120` 元。算出餐費加服務費後，再扣除該組折價券，最後除以人數。\n",
+        "\n",
+        "### 4. 布林比較\n",
+        "\n",
+        "`amount_per_person > budget_per_person` 直接產生 `True` 或 `False`，因此這題可以不使用 `if`。題目問的是「超過」，所以使用 `>`，每人費用等於預算時結果是 `False`。\n",
+        "\n",
+        "### 5. 輸出格式\n",
+        "\n",
+        "f-string 中的 `:.2f` 讓金額以小數點後兩位顯示。例如 `305.0` 顯示成 `305.00`。格式化產生顯示文字，原本的數值變數仍可繼續計算。本題保留原數值完成計算，再於最後輸出時格式化。\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "id": "cell-10",
+      "metadata": {},
+      "source": [
+        "## 兩題問答參考答案\n",
+        "\n",
+        "### 問題一：為什麼 `\"4\"` 要先轉成數字？\n",
+        "\n",
+        "`\"4\"` 是 `str`，`4` 才是 `int`。本題需要使用人數作為除數，計算每人分攤費用。Python 無法直接將餐費數值除以字串，因此先用 `int(people)` 得到整數 `4`，再參與計算。\n",
+        "\n",
+        "文字外觀看起來像數字，並不代表 Python 已經將它當成數值。例如 `\"4\" + \"1\"` 會得到 `\"41\"`，而 `4 + 1` 才會得到 `5`。\n",
+        "\n",
+        "### 問題二：如果先扣折價券，再計算服務費？\n",
+        "\n",
+        "第一組先扣折價券，餐費基準會變成：\n",
+        "\n",
+        "```text\n",
+        "1,200 − 100 = 1,100 元\n",
+        "```\n",
+        "\n",
+        "再以 1,100 元計算 10% 服務費：\n",
+        "\n",
+        "```text\n",
+        "服務費 = 1,100 × 0.10 = 110 元\n",
+        "應付總額 = 1,100 + 110 = 1,210 元\n",
+        "每人費用 = 1,210 ÷ 4 = 302.50 元\n",
+        "```\n",
+        "\n",
+        "題目規定的計算則是：\n",
+        "\n",
+        "```text\n",
+        "服務費 = 1,200 × 0.10 = 120 元\n",
+        "應付總額 = 1,200 + 120 − 100 = 1,220 元\n",
+        "每人費用 = 1,220 ÷ 4 = 305.00 元\n",
+        "```\n",
+        "\n",
+        "兩種順序的服務費基準不同，相差 `100 × 0.10 = 10` 元。先折價再收服務費會少收 10 元，因此本題必須依題目規定，以原始餐費計算服務費。\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "id": "cell-11",
+      "metadata": {},
+      "source": [
+        "## GitHub 交付\n",
+        "\n",
+        "學生交件時可將此筆記本另存為 `dinner_split_學號.ipynb`，加入自己的姓名與學號，再搭配 `README.md` 上傳 GitHub。README 須包含用途、執行方式、測試摘要、兩題個人回答與實際 AI 使用紀錄。最後繳交作業位置與筆記本的 GitHub 連結。\n",
+        "\n",
+        "本參考解答由 [AI 協助撰寫][本人獨立撰寫]，並以 Python 執行及核對三組測試。"
+      ]
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "provenance": []
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    },
+    "language_info": {
+      "name": "python",
+      "version": "3.12.14"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
